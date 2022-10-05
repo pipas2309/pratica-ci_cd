@@ -1,0 +1,24 @@
+version: "3"
+services:
+  db_psql_pratica_students:
+    image: postgres
+    container_name: db_psql_pratica_students
+    restart: always
+    ports:
+      - 6000:5432
+    env_file:
+      - .env.test
+    volumes:
+      - pg_students:/var/lib/postgresql/data
+
+  node_app_students:
+    container_name: node_pratica-ci-cd
+    build: .
+    ports:
+      - 5000:5000
+    depends_on:
+      - db_psql_pratica_students
+    env_file:
+      - .env.test
+volumes:
+  pg_students:
