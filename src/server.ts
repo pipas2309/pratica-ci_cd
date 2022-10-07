@@ -1,6 +1,6 @@
-import app from "./app.js";
+import app from './app.js';
 
-const port = process.env.PORT || 5000;
-app.listen(port, () => {
-  console.log(`Servidor funfando na porta: ${port}`);
-})
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Servidor funfando na porta: ${PORT}`);
+});
